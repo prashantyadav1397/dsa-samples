@@ -14,21 +14,21 @@
 // Input - Hello a 149
 // Output - H3o a 119
 
-const input = "hello a 149";
+const input = "hello at 14qw9";
 
 const s: string = input
   .split(" ")
   .map((curr): string => {
-    if (curr.length > 1) {
+    if (curr.length > 2) {
       const f = curr.slice(0, 1);
-      const r = curr.slice(1, curr.length - 1).length;
-      const e = curr.slice(curr.length - 1, curr.length);
+      const r = curr.slice(1, -1).length;
+      const e = curr.slice(curr.length - 1);
 
-      return r === 0 ? [f, e].join("") : [f, r, e].join("");
+      return f + r + e;
     } else {
       return curr;
     }
   })
   .join(" ");
 
-console.log(s); // h3o a 119
+console.log(s); // h3o at 139
