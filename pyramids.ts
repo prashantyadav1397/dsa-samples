@@ -17,15 +17,35 @@
 
 
 // Approach 1 =====================================================
+// const pyramid = (n: number) => {
+//     let charCount: number = 0;
+//     let spaceCount: number = 0;
+
+//     for (let i = 1; i <= n; i++) {
+//         charCount = (2 * i) - 1;
+//         spaceCount = n - i;
+
+//         console.log(' '.repeat(spaceCount) + '#'.repeat(charCount) + ' '.repeat(spaceCount));
+//     }
+// }
+// ================================================================
+
+// Approach 2 =====================================================
 const pyramid = (n: number) => {
-    let charCount: number = 0;
-    let spaceCount: number = 0;
+    let mid: number = Math.floor((2 * (n - 1)) / 2);
 
-    for (let i = 1; i <= n; i++) {
-        charCount = (2 * i) - 1;
-        spaceCount = n - i;
+    for (let row = 0; row < n; row++) {
+        let str: string = '';
 
-        console.log(' '.repeat(spaceCount) + '#'.repeat(charCount) + ' '.repeat(spaceCount));
+        for (let col = 0; col < 2 * n - 1; col++) {
+            if (mid - row <= col && mid + row >= col) {
+                str += '#';
+            } else {
+                str += ' ';
+            }
+        }
+
+        console.log(str);
     }
 }
 // ================================================================
